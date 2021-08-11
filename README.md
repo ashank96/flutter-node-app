@@ -1,2 +1,2 @@
-# flutter-node-app
-flutter web nodejs app
+# nuclei-flutter-web-app
+Contains static flutter web sdk content for CDN

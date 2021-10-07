@@ -35,6 +35,7 @@
     console.log('js-log version '+parseInt(platform.version.split(".")[0]));
    HTMLCanvasElement.prototype.getContext = function (orig) {
      return function(type) {
+      console.log(type);
        return type !== "webgl2" ? orig.apply(this, arguments) : null
      }
    }(HTMLCanvasElement.prototype.getContext)

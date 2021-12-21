@@ -4,10 +4,10 @@ var dsBridge = require("dsbridge")
 function getHostName() {
     let host = '{}' ;
     try {
-        host = dsBridge.call("NativeFlutterInterface.getHostName","") ;
+        host = dsBridge.call("marketplaceweb.getHostName","") ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
     console.log(`JS : Returning HOST : ${host}`);
     return host;
@@ -15,58 +15,58 @@ function getHostName() {
 
 function openMyTransactions() {
     try {
-       dsBridge.call("NativeFlutterInterface.openMyTransactions","");
+       dsBridge.call("marketplaceweb.openMyTransactions","");
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
 }
 
 function openCustomerSupport() {
     try {
-        dsBridge.call("NativeFlutterInterface.openCustomerSupport","") ;
+        dsBridge.call("marketplaceweb.openCustomerSupport","") ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
 }
 
 function openCalendar(date) {
     try {
-        dsBridge.call("NativeFlutterInterface.openCalendar",date) ;
+        dsBridge.call("marketplaceweb.openCalendar",date) ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
 }
 
 function onAppInit() {
 
     try {
-        dsBridge.call("NativeFlutterInterface.onAppInit","") ;
+        dsBridge.call("marketplaceweb.onAppInit","") ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
 }
 
 
 function closeFlutterView() {
     try {
-        dsBridge.call("NativeFlutterInterface.closeFlutterView","") ;
+        dsBridge.call("marketplaceweb.closeFlutterView","") ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
 }
 
 function partnerMenuOptionClicked(menuTitle) {
 
     try {
-        dsBridge.call("NativeFlutterInterface.partnerMenuOptionClicked",menuTitle) ;
+        dsBridge.call("marketplaceweb.partnerMenuOptionClicked",menuTitle) ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
 }
 
@@ -75,10 +75,10 @@ function partnerMenuOptionClicked(menuTitle) {
 function getPartnerMenuOptions() {
     let result = '[]' ;
     try {
-        result = dsBridge.call("NativeFlutterInterface.getPartnerMenuOptions","") ;
+        result = dsBridge.call("marketplaceweb.getPartnerMenuOptions","") ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
     return result;
 }
@@ -87,10 +87,10 @@ function getPartnerMenuOptions() {
 function getRequestHeaders() {
     let result = "{}";
     try {
-        result = dsBridge.call("NativeFlutterInterface.getRequestHeaders","") ;
+        result = dsBridge.call("marketplaceweb.getRequestHeaders","") ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
     return result ;
 }
@@ -98,10 +98,10 @@ function getRequestHeaders() {
 function getThemeData() {
     let result = '{}' ;
     try {
-        result = dsBridge.call("NativeFlutterInterface.getThemeData","") ;
+        result = dsBridge.call("marketplaceweb.getThemeData","") ;
     }
     catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
+        console.log(`marketplaceweb not found !`);
     }
     return result;
 }
@@ -109,10 +109,10 @@ function getThemeData() {
 function makePaymentCallbackToPartner(paymentInitData) {
     let result = '{}' ;
      try {
-            result = dsBridge.call("NativeFlutterInterface.makePaymentCallbackToPartner",paymentInitData);
+            result = dsBridge.call("marketplaceweb.makePaymentCallbackToPartner",paymentInitData);
         }
         catch (e) {
-            console.log(`NativeFlutterInterface not found !`);
+            console.log(`marketplaceweb not found !`);
         }
      return result;
 }

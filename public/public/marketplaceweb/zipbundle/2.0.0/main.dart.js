@@ -48804,7 +48804,7 @@ p=new F.xt().my()
 o=C.e.j(a)
 n=H.a([new D.o0("Proceed","testError",2)],t.Z6)
 m=C.e.j(new P.bq(Date.now(),!1).A(0,P.bG(90,0,0,0,0,0)).a)
-$.mk().m(0,"onCalendarResponse18",new D.aTM(q,b))
+$.mk().m(0,"openCalendarResponse18",new D.aTM(q,b))
 l=Z.eS()
 s=2
 return P.o(l.Sa(new D.K4(new D.a7C("Calendar",o,n),null,0,p.f,m,null,1,null,!0,!1,null,null,null,!1,null)),$async$Ga)

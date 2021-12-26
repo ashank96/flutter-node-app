@@ -13,18 +13,50 @@ function getHostName() {
     return host;
 }
 
-function openMyTransactions() {
+function openMyTransactions(payloadMap) {
     try {
-       dsBridge.call("marketplaceweb.openMyTransactions","");
+       dsBridge.call("marketplaceweb.openMyTransactions",payloadMap);
     }
     catch (e) {
         console.log(`marketplaceweb not found !`);
     }
 }
 
-function openCustomerSupport() {
+function openCouponScreen(payloadMap) {
     try {
-        dsBridge.call("marketplaceweb.openCustomerSupport","") ;
+       dsBridge.call("marketplaceweb.openCouponScreen",payloadMap);
+    }
+    catch (e) {
+        console.log(`marketplaceweb not found !`);
+    }
+}
+
+function openWebView(payloadMap){
+     dsBridge.call("marketplaceweb.openWebView",payloadMap);
+}
+
+function downloadDocument(payloadMap){
+     dsBridge.call("marketplaceweb.downloadDocument",payloadMap);
+}
+
+function shareDocument(payloadMap){
+     dsBridge.call("marketplaceweb.shareDocument",payloadMap);
+}
+
+
+function askContactPermission() {
+    try {
+        host = NativeFlutterInterface.askContactPermission() ;
+        return host;
+    }
+    catch (e) {
+        console.log(`NativeFlutterInterface not found !`);
+    }
+}
+
+function openCustomerSupport(payloadMap) {
+    try {
+        dsBridge.call("marketplaceweb.openCustomerSupport",payloadMap) ;
     }
     catch (e) {
         console.log(`marketplaceweb not found !`);

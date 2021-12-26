@@ -24,7 +24,7 @@ function openMyTransactions(payloadMap) {
 
 function openCouponScreen(payloadMap) {
     try {
-       dsBridge.call("marketplaceweb.openCouponScreen",payloadMap);
+       dsBridge.call("marketplaceweb.openCouponScreen","");
     }
     catch (e) {
         console.log(`marketplaceweb not found !`);

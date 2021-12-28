@@ -63,6 +63,15 @@ function openCustomerSupport(payloadMap) {
     }
 }
 
+function initCartReview(payloadMap){
+    try {
+        dsBridge.call("marketplaceweb.initCartReview",payloadMap) ;
+    }
+    catch(e) {
+        console.log(`marketplaceweb not found !`);
+    }
+}
+
 function openCalendar(date) {
     try {
         dsBridge.call("marketplaceweb.openCalendar",date) ;

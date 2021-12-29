@@ -13,6 +13,18 @@ function getHostName() {
     return host;
 }
 
+function isTestInternal() {
+    let isTestInternal = '{}' ;
+    try {
+        host = dsBridge.call("marketplaceweb.isTestInternal","") ;
+    }
+    catch (e) {
+        console.log(`marketplaceweb not found !`);
+    }
+    console.log(`JS : Returning isTestInternal : ${isTestInternal}`);
+    return isTestInternal;
+}
+
 function openMyTransactions(payloadMap) {
     try {
        dsBridge.call("marketplaceweb.openMyTransactions",payloadMap);
@@ -59,15 +71,6 @@ function openCustomerSupport(payloadMap) {
         dsBridge.call("marketplaceweb.openCustomerSupport",payloadMap) ;
     }
     catch (e) {
-        console.log(`marketplaceweb not found !`);
-    }
-}
-
-function initCartReview(payloadMap){
-    try {
-        dsBridge.call("marketplaceweb.initCartReview",payloadMap) ;
-    }
-    catch(e) {
         console.log(`marketplaceweb not found !`);
     }
 }

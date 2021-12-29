@@ -8,6 +8,7 @@ done
 #delete favicon and service worker
 rm favicon.png
 rm flutter_service_worker.js
+#rm -rf assets/packages/flutter_math_fork
 
 #modify index.html
 sed -i '.bak' "s/<base href=\"\/\">/<base href=\"\/public\/marketplaceweb\/zipbundle\/$version\/\">/" index.html

@@ -84,13 +84,22 @@ function initCartReview(payloadMap){
     }
 }
 
-function openCalendar(date) {
-    try {
-        dsBridge.call("marketplaceweb.openCalendar",date) ;
-    }
-    catch (e) {
-        console.log(`marketplaceweb not found !`);
-    }
+//function openCalendar(date) {
+//    try {
+//        dsBridge.call("marketplaceweb.openCalendar",date) ;
+//    }
+//    catch (e) {
+//        console.log(`marketplaceweb not found !`);
+//    }
+//}
+function openCalendar(openCalendarRequest) {
+  return new Promise((resolve, reject) => {
+    console.log(`JS: calling openCalendar`);
+    console.log(openCalendarRequest);
+    dsBridge.call("marketplaceweb.openCalendar", openCalendarRequest, function (v) {
+      resolve(v);
+    });
+  });
 }
 
 function onAppInit() {

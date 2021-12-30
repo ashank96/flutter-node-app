@@ -39,7 +39,7 @@
     <link rel="manifest" href="manifest.json">
 
     <script>
-    var renderType;
+     var renderType;
     if (platform.name.toLowerCase() == "safari" ) {
         if(parseInt(platform.os.toString().replace('iOS', '').split(".")[0]) >= 15) {
             window.flutterWebRenderer = "canvaskit";

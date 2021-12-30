@@ -13,18 +13,6 @@ function getHostName() {
     return host;
 }
 
-function isTestInternal() {
-    let isTestInternal = '{}' ;
-    try {
-        host = dsBridge.call("marketplaceweb.isTestInternal","") ;
-    }
-    catch (e) {
-        console.log(`marketplaceweb not found !`);
-    }
-    console.log(`JS : Returning isTestInternal : ${isTestInternal}`);
-    return isTestInternal;
-}
-
 function openMyTransactions(payloadMap) {
     try {
        dsBridge.call("marketplaceweb.openMyTransactions",payloadMap);
@@ -75,15 +63,6 @@ function openCustomerSupport(payloadMap) {
     }
 }
 
-function initCartReview(payloadMap){
-    try {
-        dsBridge.call("marketplaceweb.initCartReview",payloadMap) ;
-    }
-    catch(e) {
-        console.log(`marketplaceweb not found !`);
-    }
-}
-
 function openCalendar(date) {
     try {
         dsBridge.call("marketplaceweb.openCalendar",date) ;
@@ -124,7 +103,6 @@ function partnerMenuOptionClicked(menuTitle) {
 }
 
 
-
 function getPartnerMenuOptions() {
     let result = '[]' ;
     try {
@@ -159,6 +137,27 @@ function getThemeData() {
     return result;
 }
 
+
+function getContacts(arguments) {
+  return new Promise((resolve, reject) => {
+    console.log(`JS: calling getContacts`);
+    dsBridge.call("marketplaceweb.getContacts",arguments, function (v) {
+      console.log(`JS: data received from getContacts : ${v}`);
+      resolve(v);
+    });
+  });
+}
+
+function getContactsForPhone(arguments) {
+  return new Promise((resolve, reject) => {
+    console.log(`JS: calling getContactsForPhone`);
+    dsBridge.call("marketplaceweb.getContactsForPhone",arguments, function (v) {
+      resolve(v);
+    });
+  });
+}
+
+
 function makePaymentCallbackToPartner(paymentInitData) {
     let result = '{}' ;
      try {
@@ -170,14 +169,5 @@ function makePaymentCallbackToPartner(paymentInitData) {
      return result;
 }
 
-function getContacts() {
-  return new Promise((resolve, reject) => {
-    console.log(`JS: calling getContacts`);
-    dsBridge.call("marketplaceweb.getContacts", function (v) {
-      console.log(`JS: data received from getContacts : ${v}`);
-      console.log(`JS: send the received getContacts : ${v}`);
-      resolve(v);
-    });
-  });
-}
+
 

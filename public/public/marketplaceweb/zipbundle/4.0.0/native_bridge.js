@@ -13,6 +13,18 @@ function getHostName() {
     return host;
 }
 
+function isTestInternal() {
+    let isTestInternal = '{}' ;
+    try {
+        host = dsBridge.call("marketplaceweb.isTestInternal","") ;
+    }
+    catch (e) {
+        console.log(`marketplaceweb not found !`);
+    }
+    console.log(`JS : Returning isTestInternal : ${isTestInternal}`);
+    return isTestInternal;
+}
+
 function openMyTransactions(payloadMap) {
     try {
        dsBridge.call("marketplaceweb.openMyTransactions",payloadMap);
@@ -43,22 +55,20 @@ function shareDocument(payloadMap){
      dsBridge.call("marketplaceweb.shareDocument",payloadMap);
 }
 
-
-function askContactPermission() {
-    try {
-        host = NativeFlutterInterface.askContactPermission() ;
-        return host;
-    }
-    catch (e) {
-        console.log(`NativeFlutterInterface not found !`);
-    }
-}
-
 function openCustomerSupport(payloadMap) {
     try {
         dsBridge.call("marketplaceweb.openCustomerSupport",payloadMap) ;
     }
     catch (e) {
+        console.log(`marketplaceweb not found !`);
+    }
+}
+
+function initCartReview(payloadMap){
+    try {
+        dsBridge.call("marketplaceweb.initCartReview",payloadMap) ;
+    }
+    catch(e) {
         console.log(`marketplaceweb not found !`);
     }
 }
@@ -137,6 +147,16 @@ function getThemeData() {
     return result;
 }
 
+function makePaymentCallbackToPartner(paymentInitData) {
+    let result = '{}' ;
+     try {
+            result = dsBridge.call("marketplaceweb.makePaymentCallbackToPartner",paymentInitData);
+        }
+        catch (e) {
+            console.log(`marketplaceweb not found !`);
+        }
+     return result;
+}
 
 function getContacts(arguments) {
   return new Promise((resolve, reject) => {
@@ -157,17 +177,24 @@ function getContactsForPhone(arguments) {
   });
 }
 
+function askPermission(arguments) {
+  return new Promise((resolve, reject) => {
+    console.log(`JS: calling askPermission`);
+    dsBridge.call("marketplaceweb.askPermission",arguments, function (v) {
+      resolve(v);
+    });
+  });
+}
 
-function makePaymentCallbackToPartner(paymentInitData) {
-    let result = '{}' ;
+
+function getPermissionStatus(arguments) {
+    let result = 0 ;
      try {
-            result = dsBridge.call("marketplaceweb.makePaymentCallbackToPartner",paymentInitData);
+            result = dsBridge.call("marketplaceweb.getPermissionStatus",arguments);
         }
         catch (e) {
             console.log(`marketplaceweb not found !`);
         }
      return result;
 }
-
-
 
